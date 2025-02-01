@@ -42,10 +42,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }
-
 export async function GET(request: Request) {
     try {
-        const device_id = request.headers.get('device-id') ?? undefined;
+        const url = new URL(request.url);
+        const device_id = url.searchParams.get('device_id') ?? undefined;
         const apiKey = request.headers.get('api-key') ?? undefined;
         const apiSecret = request.headers.get('api-secret') ?? undefined;
 
