@@ -5,6 +5,7 @@ import {
 } from '@clerk/nextjs'
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
+import { DeviceProvider } from "@/app/contexts/DeviceContext"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main className="min-h-screen">
-          {children}
+          <DeviceProvider>{children}</DeviceProvider>
         </main>
         <Toaster />
       </body>
