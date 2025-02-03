@@ -44,6 +44,7 @@ export async function syncUser() {
 }
 
 export async function fetchUserCredentials() {
+  await syncUser(); // Ensure user is synced before fetching credentials
   const { userId } = await auth()
 
   if (!userId) {
